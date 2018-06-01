@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors Part 2
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+    <script>
+        alert("Let's Play a game");
+    </script>
+
+<div class="jumbotron jumbotron-fluid">
+        <div class="container" id="game">
+          <h1 class="display-4">Rock, Paper, Scissors</h1>
+          <p class="lead">
+            <h3>Press R for Rock</h3>
+            <h3>Press S for Scissors</h3>
+            <h3>Press P for Paper</h3>
+            </p>
+        </div>
+      </div>
+
+   
+        
+
+
+
+    <script type="text/javascript">
+
+        // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+        var computerChoices = ["r", "p", "s"];
+
+        var wins = 0;
+        var losses = 0;
+        var ties = 0;
+
+        // This function is run whenever the user presses a key.
+        document.onkeyup = function (event) {
+
+            // Determines which key was pressed.
+            var userGuess = event.key;
+
+            // Randomly chooses a choice from the options array. This is the Computer's guess.
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+            // Alerts the key the user pressed (userGuess).
+            if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
+
+
+                if ((userGuess === "s") && (computerGuess === "p")) {
+                    wins++
+                }
+
+                else if ((userGuess === "p") && (computerGuess === "r")) {
+                    wins++
+                }
+
+                else if ((userGuess === "r") && (computerGuess === "s")) {
+                    wins++
+                }
+
+                else if ((userGuess === "s") && (computerGuess === "r")) {
+                    losses++
+                }
+
+                else if ((userGuess === "p") && (computerGuess === "s")) {
+                    losses++
+                }
+
+                else if ((userGuess === "r") && (computerGuess === "p")) {
+                    losses++
+                }
+
+                else if (userGuess === computerGuess) {
+                    ties++;
+
+                }
+            }
+
+            else {
+                alert("Oops! Please choose r for rock, p for paper, or s for scissors!")
+            }
+
+
+
+            var html =
+                "<p>You chose: " + userGuess + "</p>" +
+                "<p>The computer chose: " + computerGuess + "</p>" +
+                "<p>Wins: " + wins + "</p>" +
+                "<p>Losses: " + losses + "</p>" +
+                "<p>Ties: " + ties + "</p>";
+
+            document.querySelector("#game").innerHTML = html;
+
+        };
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
